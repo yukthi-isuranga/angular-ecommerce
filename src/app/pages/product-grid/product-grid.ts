@@ -1,10 +1,22 @@
 import { Component, computed, input, signal } from '@angular/core';
+import { MatSidenavContainer, MatSidenav, MatSidenavContent } from '@angular/material/sidenav';
 import { Product } from '../../../models/products';
 import { ProductCard } from '../../components/product-card/product-card';
+import { MatNavList, MatListItem, MatListItemTitle } from '@angular/material/list';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-grid',
-  imports: [ProductCard],
+  imports: [
+    ProductCard,
+    MatSidenavContainer,
+    MatSidenav,
+    MatSidenavContent,
+    MatNavList,
+    MatListItem,
+    MatListItemTitle,
+    RouterLink,
+  ],
   templateUrl: './product-grid.html',
   styleUrl: './product-grid.scss',
 })
@@ -290,11 +302,26 @@ export default class ProductGrid {
   ]);
 
   filteredProducts = computed(() => {
-    if (this.category() === 'all') {
+    if (this.category() === 'All') {
       return this.products();
     }
     return this.products().filter(
       (p) => p.category.toLowerCase() === this.category().toLowerCase(),
     );
   });
+
+  categories = signal<string[]>([
+    'All',
+    'Electronics',
+    'Accessories',
+    'Office',
+    'Storage',
+    'Home',
+    'Furniture',
+    'Fashion',
+    'Lifestyle',
+    'Fitness',
+    'Kitchen',
+    'Appliances',
+  ]);
 }
