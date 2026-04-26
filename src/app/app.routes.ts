@@ -4,14 +4,14 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'products',
+    redirectTo: 'products/all',
   },
   {
-    path: 'products',
-    loadComponent: () => import('./pages/product-grid/product-grid').then((m) => m.ProductGrid),
+    path: 'products/:category',
+    loadComponent: () => import('./pages/product-grid/product-grid'),
   },
   {
     path: 'wishlist',
-    loadComponent: () => import('./pages/my-wishlist/my-wishlist').then((m) => m.MyWishlist),
+    loadComponent: () => import('./pages/my-wishlist/my-wishlist'),
   },
 ];
