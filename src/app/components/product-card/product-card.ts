@@ -1,9 +1,11 @@
 import { Component, input } from '@angular/core';
 import { Product } from '../../../models/products';
+import { MatAnchor } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-product-card',
-  imports: [],
+  imports: [MatAnchor, MatIcon],
   templateUrl: './product-card.html',
   styleUrl: './product-card.scss',
 })
