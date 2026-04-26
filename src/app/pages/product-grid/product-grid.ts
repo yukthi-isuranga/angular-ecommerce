@@ -1,9 +1,10 @@
 import { Component, computed, input, signal } from '@angular/core';
 import { Product } from '../../../models/products';
+import { ProductCard } from '../../components/product-card/product-card';
 
 @Component({
   selector: 'app-product-grid',
-  imports: [],
+  imports: [ProductCard],
   templateUrl: './product-grid.html',
   styleUrl: './product-grid.scss',
 })
@@ -288,7 +289,12 @@ export default class ProductGrid {
     },
   ]);
 
-  filteredProducts = computed(() =>
-    this.products().filter((p) => p.category.toLowerCase() === this.category().toLowerCase()),
-  );
+  filteredProducts = computed(() => {
+    if (this.category() === 'all') {
+      return this.products();
+    }
+    return this.products().filter(
+      (p) => p.category.toLowerCase() === this.category().toLowerCase(),
+    );
+  });
 }
