@@ -4,6 +4,7 @@ import { Product } from '../../../models/products';
 import { ProductCard } from '../../components/product-card/product-card';
 import { MatNavList, MatListItem, MatListItemTitle } from '@angular/material/list';
 import { RouterLink } from '@angular/router';
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-product-grid',
@@ -16,6 +17,7 @@ import { RouterLink } from '@angular/router';
     MatListItem,
     MatListItemTitle,
     RouterLink,
+    TitleCasePipe,
   ],
   templateUrl: './product-grid.html',
   styleUrl: './product-grid.scss',
