@@ -1,4 +1,4 @@
-import { computed } from '@angular/core';
+import { computed, inject } from '@angular/core';
 import { Product } from '../../models/products';
 import {
   patchState,
@@ -8,10 +8,13 @@ import {
   withMethods,
   withState,
 } from '@ngrx/signals';
+import { produce } from 'immer';
+import { Toaster } from '../services/toaster';
 
 export type EcommerceState = {
   products: Product[];
   category: string;
+  wishlistItems: Product[];
 };
 
 export const EcommerceStore = signalStore(
@@ -295,19 +298,39 @@ export const EcommerceStore = signalStore(
       },
     ],
     category: 'All',
-  }),
+    wishlistItems: [],
+  } as EcommerceState),
 
-  withComputed(({ category, products }) => ({
+  withComputed(({ category, products, wishlistItems }) => ({
     filteredProducts: computed(() => {
       if (category() === 'All') {
         return products();
       }
       return products().filter((p) => p.category.toLowerCase() === category().toLowerCase());
     }),
+
+    wishlistCount: computed(() => wishlistItems().length),
   })),
-  withMethods((store) => ({
+  withMethods((store, toaster = inject(Toaster)) => ({
     setCategory: signalMethod<string>((category: string) => {
       patchState(store, { category });
     }),
+
+    addToWishlist: (products: Product) => {
+      const updatedWishlistItems = produce(store.wishlistItems(), (draft) => {
+        if (!draft.find((p) => p.id === products.id)) {
+          draft.push(products);
+        }
+      });
+      patchState(store, { wishlistItems: updatedWishlistItems });
+      toaster.success(`${products.name} added to wishlist!`);
+    },
+
+    removeFromWishlist: (products: Product) => {
+      patchState(store, {
+        wishlistItems: store.wishlistItems().filter((p) => p.id !== products.id),
+      });
+      toaster.success(`${products.name} removed from wishlist!`);
+    },
   })),
 );
