@@ -297,7 +297,7 @@ export const EcommerceStore = signalStore(
         category: 'Appliances',
       },
     ],
-    category: 'All',
+    category: 'all',
     wishlistItems: [],
   } as EcommerceState),
 
