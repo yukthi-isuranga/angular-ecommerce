@@ -183,3 +183,9 @@ mat-sidenav {
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   gap: 1rem;
 }
+
+
+.red-btn {
+  color: red !important;
+  border-color: red !important;
+}
