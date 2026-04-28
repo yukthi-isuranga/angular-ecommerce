@@ -13,7 +13,9 @@ import { EcommerceStore } from '../../store/ecommerce-store';
 export class ProductCard {
   product = input.required<Product>();
 
-  addToCartClicked = output<Product>();
+  store = inject(EcommerceStore);
+
+  // addToCartClicked = output<Product>();
 
   // store = inject(EcommerceStore);
 

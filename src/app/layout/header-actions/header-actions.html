@@ -8,7 +8,12 @@
   >
     <mat-icon>favorite</mat-icon>
   </button>
-  <button mat-icon-button>
+  <button
+    mat-icon-button
+    routerLink="/cart"
+    [matBadge]="store.cartCount()"
+    [matBadgeHidden]="store.cartCount() === 0"
+  >
     <mat-icon>shopping_cart</mat-icon>
   </button>
   <button mat-flat-button>Sign In</button>
