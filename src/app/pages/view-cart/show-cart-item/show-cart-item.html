@@ -39,8 +39,12 @@
     <div class="text-right text-lg font-bold">${{ total() }}</div>
 
     <div class="flex -me-3">
-      <button mat-icon-button><mat-icon>favorite_border</mat-icon></button>
-      <button mat-icon-button class="red-btn"><mat-icon>delete</mat-icon></button>
+      <button mat-icon-button (click)="store.moveToWishlist(item().product)">
+        <mat-icon>favorite_border</mat-icon>
+      </button>
+      <button mat-icon-button class="red-btn" (click)="store.removeFromCart(item().product)">
+        <mat-icon>delete</mat-icon>
+      </button>
     </div>
   </div>
 </div>
