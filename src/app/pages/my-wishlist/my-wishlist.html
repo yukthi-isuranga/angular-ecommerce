@@ -23,10 +23,12 @@
         </app-product-card>
       }
     </div>
-  } @else {
-    <div>
-      <h1 class="text-2xl font-bold">My Wishlist</h1>
-      <p class="text-gray-500">Your wishlist is empty.</p>
+    <div class="mt-8 flex justify-center">
+      <button mat-stroked-button class="red-btn" (click)="store.clearWishlist()">
+        Clear Wishlist
+      </button>
     </div>
+  } @else {
+    <app-empty-wishlist></app-empty-wishlist>
   }
 </div>
