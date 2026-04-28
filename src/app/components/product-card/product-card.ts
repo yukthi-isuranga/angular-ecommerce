@@ -6,7 +6,7 @@ import { EcommerceStore } from '../../store/ecommerce-store';
 
 @Component({
   selector: 'app-product-card',
-  imports: [MatAnchor, MatIcon, MatIconButton],
+  imports: [MatAnchor, MatIcon],
   templateUrl: './product-card.html',
   styleUrl: './product-card.scss',
 })
@@ -15,17 +15,17 @@ export class ProductCard {
 
   addToCartClicked = output<Product>();
 
-  store = inject(EcommerceStore);
+  // store = inject(EcommerceStore);
 
-  isInWishlist = computed(() =>
-    this.store.wishlistItems().find((item) => item.id === this.product().id),
-  );
+  // isInWishlist = computed(() =>
+  //   this.store.wishlistItems().find((item) => item.id === this.product().id),
+  // );
 
-  toggleWishlist(product: Product) {
-    if (this.isInWishlist()) {
-      this.store.removeFromWishlist(product);
-    } else {
-      this.store.addToWishlist(product);
-    }
-  }
+  // toggleWishlist(product: Product) {
+  //   if (this.isInWishlist()) {
+  //     this.store.removeFromWishlist(product);
+  //   } else {
+  //     this.store.addToWishlist(product);
+  //   }
+  // }
 }
