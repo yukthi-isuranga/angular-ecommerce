@@ -10,11 +10,13 @@ import {
 } from '@ngrx/signals';
 import { produce } from 'immer';
 import { Toaster } from '../services/toaster';
+import { CartItems } from '../../models/cart';
 
 export type EcommerceState = {
   products: Product[];
   category: string;
   wishlistItems: Product[];
+  cartItems: CartItems[];
 };
 
 export const EcommerceStore = signalStore(
@@ -299,9 +301,10 @@ export const EcommerceStore = signalStore(
     ],
     category: 'all',
     wishlistItems: [],
+    cartItems: [],
   } as EcommerceState),
 
-  withComputed(({ category, products, wishlistItems }) => ({
+  withComputed(({ category, products, wishlistItems, cartItems }) => ({
     filteredProducts: computed(() => {
       if (category() === 'All') {
         return products();
@@ -310,6 +313,8 @@ export const EcommerceStore = signalStore(
     }),
 
     wishlistCount: computed(() => wishlistItems().length),
+
+    cartCount: computed(() => cartItems().reduce((total, item) => total + item.quantity, 0)),
   })),
   withMethods((store, toaster = inject(Toaster)) => ({
     setCategory: signalMethod<string>((category: string) => {
@@ -336,6 +341,45 @@ export const EcommerceStore = signalStore(
     clearWishlist: () => {
       patchState(store, { wishlistItems: [] });
       toaster.success('Wishlist cleared!');
+    },
+
+    addToCart: (product: Product, quantity: 1) => {
+      const existingItemIndex = store
+        .cartItems()
+        .findIndex((item) => item.product.id === product.id);
+
+      const updatedCartItems = produce(store.cartItems(), (draft) => {
+        if (existingItemIndex !== -1) {
+          draft[existingItemIndex].quantity += quantity;
+          return;
+        }
+        draft.push({ product, quantity });
+      });
+      patchState(store, { cartItems: updatedCartItems });
+      toaster.success(
+        existingItemIndex !== -1
+          ? `${product.name} quantity updated in cart!`
+          : `${product.name} added to cart!`,
+      );
+    },
+
+    setItemQuantity(params: { productId: number; quantity: number }) {
+      const index = store.cartItems().findIndex((item) => item.product.id === params.productId);
+      const updated = produce(store.cartItems(), (draft) => {
+        draft[index].quantity = params.quantity;
+      });
+      patchState(store, { cartItems: updated });
+    },
+
+    addAllWishlistToCart: () => {
+      const updatedCartItems = produce(store.cartItems(), (draft) => {
+        store.wishlistItems().forEach((item) => {
+          if (!draft.find((c) => c.product.id === item.id)) {
+            draft.push({ product: item, quantity: 1 });
+          }
+        });
+      });
+      patchState(store, { cartItems: updatedCartItems, wishlistItems: [] });
     },
   })),
 );

@@ -1,0 +1,46 @@
+<!-- <div class="flex items-center gap-4 p-4 border rounded">
+  <img
+    [src]="item.product.image"
+    alt="{{ item.product.title }}"
+    class="w-16 h-16 object-cover rounded"
+  />
+  <div class="flex-1">
+    <h3 class="text-lg font-semibold">{{ item.product.title }}</h3>
+    <p class="text-sm text-gray-600">Price: ${{ item.product.price }}</p>
+    <p class="text-sm text-gray-600">Quantity: {{ item.quantity }}</p>
+  </div>
+  <button
+    (click)="store.removeFromCart(item.product.id)"
+    class="px-3 py-1 bg-red-500 text-white rounded"
+  >
+    Remove
+  </button>
+</div> -->
+
+<div class="grid grid-cols-3 grid-cols-[3fr_1fr_1fr]">
+  <div class="flex items-center gap-4">
+    <img
+      [src]="item().product.imageUrl"
+      alt="{{ item().product.name }}"
+      class="w-24 h-24 object-cover rounded-lg"
+    />
+    <div>
+      <h3 class="text-lg font-semibold">{{ item().product.name }}</h3>
+      <p class="text-sm text-gray-600">Price: ${{ item().product.price }}</p>
+      <!-- <p class="text-sm text-gray-600">Quantity: {{ item().quantity }}</p> -->
+    </div>
+  </div>
+  <app-qty-selector
+    [quantity]="item().quantity"
+    (qtyUpdated)="store.setItemQuantity({ productId: item().product.id, quantity: $event })"
+  />
+
+  <div class="flex flex-col items-end">
+    <div class="text-right text-lg font-bold">${{ total() }}</div>
+
+    <div class="flex -me-3">
+      <button mat-icon-button><mat-icon>favorite_border</mat-icon></button>
+      <button mat-icon-button class="red-btn"><mat-icon>delete</mat-icon></button>
+    </div>
+  </div>
+</div>
