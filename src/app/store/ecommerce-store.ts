@@ -362,5 +362,13 @@ export const EcommerceStore = signalStore(
           : `${product.name} added to cart!`,
       );
     },
+
+    setItemQuantity(params: { productId: number; quantity: number }) {
+      const index = store.cartItems().findIndex((item) => item.product.id === params.productId);
+      const updated = produce(store.cartItems(), (draft) => {
+        draft[index].quantity = params.quantity;
+      });
+      patchState(store, { cartItems: updated });
+    },
   })),
 );

@@ -1,1 +1,12 @@
-<p>view-cart works!</p>
+<div class="mx-auto max-w-[1200px] py-6">
+  <!-- <app-back-button label="Continue to shopping" navigateTo="/products/All" /> -->
+  <app-back-button class="mb-6" navigateTo="/products/All">Continue to shopping</app-back-button>
+
+  <h1 class="text-3xl font-extrabold mb-4">Shopping Cart</h1>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
+    <div class="lg:col-span-2">
+      <app-list-cart-items />
+    </div>
+  </div>
+</div>
