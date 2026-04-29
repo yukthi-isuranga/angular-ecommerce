@@ -14,7 +14,9 @@
     <div>
       <app-summarize-order>
         <ng-container actionButtons>
-          <button matButton="elevated" class="w-full mt-6 py-3">Proceed to Checkout</button>
+          <button matButton="elevated" class="w-full mt-6 py-3" (click)="store.proceedToCheckout()">
+            Proceed to Checkout
+          </button>
         </ng-container>
       </app-summarize-order>
     </div>
