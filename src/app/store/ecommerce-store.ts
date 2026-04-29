@@ -11,12 +11,16 @@ import {
 import { produce } from 'immer';
 import { Toaster } from '../services/toaster';
 import { CartItems } from '../../models/cart';
+import { MatDialog } from '@angular/material/dialog';
+import { SignInDialog } from '../components/sign-in-dialog/sign-in-dialog';
+import { SignInParams, User } from '../../models/user';
 
 export type EcommerceState = {
   products: Product[];
   category: string;
   wishlistItems: Product[];
   cartItems: CartItems[];
+  user: User | undefined;
 };
 
 export const EcommerceStore = signalStore(
@@ -302,6 +306,7 @@ export const EcommerceStore = signalStore(
     category: 'all',
     wishlistItems: [],
     cartItems: [],
+    user: undefined,
   } as EcommerceState),
 
   withComputed(({ category, products, wishlistItems, cartItems }) => ({
@@ -316,7 +321,7 @@ export const EcommerceStore = signalStore(
 
     cartCount: computed(() => cartItems().reduce((total, item) => total + item.quantity, 0)),
   })),
-  withMethods((store, toaster = inject(Toaster)) => ({
+  withMethods((store, toaster = inject(Toaster), dialog = inject(MatDialog)) => ({
     setCategory: signalMethod<string>((category: string) => {
       patchState(store, { category });
     }),
@@ -397,6 +402,23 @@ export const EcommerceStore = signalStore(
     removeFromCart: (product: Product) => {
       patchState(store, {
         cartItems: store.cartItems().filter((c) => c.product.id !== product.id),
+      });
+    },
+
+    proceedToCheckout: () => {
+      dialog.open(SignInDialog, {
+        disableClose: true,
+      });
+    },
+
+    signIn: ({ email, password }: SignInParams) => {
+      patchState(store, {
+        user: {
+          id: '001',
+          email,
+          name: 'Yukthi Isuranga',
+          imageUrl: 'https://i.pravatar.cc/300',
+        },
       });
     },
   })),
