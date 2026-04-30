@@ -16,6 +16,35 @@
   >
     <mat-icon>shopping_cart</mat-icon>
   </button>
-  <button mat-flat-button>Sign In</button>
-  <button mat-raised-button color="primary">Sign out</button>
+  @if (store.user(); as user) {
+    <button mat-icon-button [matMenuTriggerFor]="userMenu">
+      <img [src]="user.imageUrl" [alt]="user.name" class="w-8 h-8 rounded-full" />
+    </button>
+    <mat-menu #userMenu="matMenu" xPosition="before">
+      <div class="flex flex-col px-3 min-w-[200px]">
+        <span class="text-sm font-medium">{{ user.name }}</span>
+        <span class="text-xs text-gray-500">{{ user.email }}</span>
+      </div>
+      <mat-drawer></mat-drawer>
+      <button mat-menu-item class="!min-h-[32px]" (click)="store.signOut()">
+        <mat-icon>logout</mat-icon>
+        <span>Sign Out</span>
+      </button>
+      <!-- <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Redial</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>voicemail</mat-icon>
+        <span>Check voice mail</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button> -->
+    </mat-menu>
+  } @else {
+    <button mat-flat-button>Sign In</button>
+    <button mat-raised-button color="primary">Sign out</button>
+  }
 </div>
