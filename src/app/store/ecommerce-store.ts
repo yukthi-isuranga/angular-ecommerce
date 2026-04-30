@@ -432,6 +432,10 @@ export const EcommerceStore = signalStore(
           router.navigate(['/checkout']);
         }
       },
+
+      signOut: () => {
+        patchState(store, { user: undefined });
+      },
     }),
   ),
 );
