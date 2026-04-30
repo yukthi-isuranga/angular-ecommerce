@@ -13,7 +13,7 @@ import { Toaster } from '../services/toaster';
 import { CartItems } from '../../models/cart';
 import { MatDialog } from '@angular/material/dialog';
 import { SignInDialog } from '../components/sign-in-dialog/sign-in-dialog';
-import { SignInParams, User } from '../../models/user';
+import { SignInParams, SignUpParams, User } from '../../models/user';
 import { Router } from '@angular/router';
 
 export type EcommerceState = {
@@ -435,6 +435,23 @@ export const EcommerceStore = signalStore(
 
       signOut: () => {
         patchState(store, { user: undefined });
+      },
+
+      signUp: ({ email, password, name, checkout, dialogId }: SignUpParams) => {
+        patchState(store, {
+          user: {
+            id: '001',
+            email,
+            name: 'Yukthi Isuranga',
+            imageUrl: 'https://i.pravatar.cc/300',
+          },
+        });
+
+        matDialog.getDialogById(dialogId)?.close();
+
+        if (checkout) {
+          router.navigate(['/checkout']);
+        }
       },
     }),
   ),
