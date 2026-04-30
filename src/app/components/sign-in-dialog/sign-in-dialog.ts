@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -27,6 +27,10 @@ export class SignInDialog {
 
   store = inject(EcommerceStore);
 
+  data = inject<{ checkout: boolean }>(MAT_DIALOG_DATA);
+
+  dialogRef = inject(MatDialogRef);
+
   passwordVisible = signal(false);
 
   signInForm = this.fb.group({
@@ -35,13 +39,18 @@ export class SignInDialog {
   });
 
   signIn() {
-    if (this.signInForm.valid) {
+    if (!this.signInForm.valid) {
       this.signInForm.markAllAsTouched();
       return;
     }
 
     const { email, password } = this.signInForm.value;
 
-    this.store.signIn({ email, password } as SignInParams);
+    this.store.signIn({
+      email,
+      password,
+      checkout: this.data.checkout,
+      dialogId: this.dialogRef.id,
+    } as SignInParams);
   }
 }
