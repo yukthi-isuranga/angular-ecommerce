@@ -394,7 +394,7 @@ export const EcommerceStore = signalStore(
         toaster.success('Wishlist cleared!');
       },
 
-      addToCart: (product: Product, quantity: 1) => {
+      addToCart: (product: Product, quantity: number) => {
         const existingItemIndex = store
           .cartItems()
           .findIndex((item) => item.product.id === product.id);
