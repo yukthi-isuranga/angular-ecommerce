@@ -1,9 +1,10 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { EcommerceStore } from '../../store/ecommerce-store';
+import { BackButton } from '../../components/back-button/back-button';
 
 @Component({
   selector: 'app-view-product-detail',
-  imports: [],
+  imports: [BackButton],
   templateUrl: './view-product-detail.html',
   styleUrl: './view-product-detail.scss',
 })
@@ -15,4 +16,6 @@ export default class ViewProductDetail {
   constructor() {
     this.store.setProductId(this.productId);
   }
+
+  backRoute = computed(() => `/products/${this.store.category().toLocaleLowerCase()}`);
 }
