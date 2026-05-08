@@ -40,7 +40,7 @@ export const EcommerceStore = signalStore(
         price: 59.99,
         imageUrl:
           'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800&auto=format&fit=crop',
-        rating: '4.5',
+        rating: 4.5,
         reviewCount: 120,
         inStock: true,
         category: 'Electronics',
@@ -52,7 +52,7 @@ export const EcommerceStore = signalStore(
         price: 89.99,
         imageUrl:
           'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop',
-        rating: '4.2',
+        rating: 4.2,
         reviewCount: 95,
         inStock: true,
         category: 'Electronics',
@@ -64,7 +64,7 @@ export const EcommerceStore = signalStore(
         price: 29.99,
         imageUrl:
           'https://images.unsplash.com/photo-1527814050087-3793815479db?q=80&w=800&auto=format&fit=crop',
-        rating: '4.6',
+        rating: 4.6,
         reviewCount: 210,
         inStock: true,
         category: 'Accessories',
@@ -76,7 +76,7 @@ export const EcommerceStore = signalStore(
         price: 79.99,
         imageUrl:
           'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?q=80&w=800&auto=format&fit=crop',
-        rating: '4.7',
+        rating: 4.7,
         reviewCount: 180,
         inStock: true,
         category: 'Accessories',
@@ -88,7 +88,7 @@ export const EcommerceStore = signalStore(
         price: 45.0,
         imageUrl:
           'https://images.unsplash.com/photo-1589003077984-894e133dabab?q=80&w=800&auto=format&fit=crop',
-        rating: '4.3',
+        rating: 4.3,
         reviewCount: 140,
         inStock: true,
         category: 'Electronics',
@@ -100,7 +100,7 @@ export const EcommerceStore = signalStore(
         price: 25.99,
         imageUrl:
           'https://images.unsplash.com/photo-1517336714739-489689fd1ca8?q=80&w=800&auto=format&fit=crop',
-        rating: '4.4',
+        rating: 4.4,
         reviewCount: 60,
         inStock: true,
         category: 'Office',
@@ -112,7 +112,7 @@ export const EcommerceStore = signalStore(
         price: 34.99,
         imageUrl:
           'https://images.unsplash.com/photo-1587829741301-dc798b83add3?q=80&w=800&auto=format&fit=crop',
-        rating: '4.1',
+        rating: 4.1,
         reviewCount: 75,
         inStock: true,
         category: 'Accessories',
@@ -124,7 +124,7 @@ export const EcommerceStore = signalStore(
         price: 99.99,
         imageUrl:
           'https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=800&auto=format&fit=crop',
-        rating: '4.8',
+        rating: 4.8,
         reviewCount: 220,
         inStock: true,
         category: 'Storage',
@@ -136,7 +136,7 @@ export const EcommerceStore = signalStore(
         price: 19.99,
         imageUrl:
           'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800&auto=format&fit=crop',
-        rating: '4.2',
+        rating: 4.2,
         reviewCount: 50,
         inStock: true,
         category: 'Home',
@@ -148,7 +148,7 @@ export const EcommerceStore = signalStore(
         price: 149.99,
         imageUrl:
           'https://images.unsplash.com/photo-1505843513577-22bb7d21e455?q=80&w=800&auto=format&fit=crop',
-        rating: '4.6',
+        rating: 4.6,
         reviewCount: 310,
         inStock: false,
         category: 'Furniture',
@@ -160,7 +160,7 @@ export const EcommerceStore = signalStore(
         price: 69.99,
         imageUrl:
           'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop',
-        rating: '4.3',
+        rating: 4.3,
         reviewCount: 170,
         inStock: true,
         category: 'Fashion',
@@ -172,7 +172,7 @@ export const EcommerceStore = signalStore(
         price: 39.99,
         imageUrl:
           'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800&auto=format&fit=crop',
-        rating: '4.5',
+        rating: 4.5,
         reviewCount: 88,
         inStock: true,
         category: 'Fashion',
@@ -184,7 +184,7 @@ export const EcommerceStore = signalStore(
         price: 24.99,
         imageUrl:
           'https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=800&auto=format&fit=crop',
-        rating: '4.1',
+        rating: 4.1,
         reviewCount: 65,
         inStock: true,
         category: 'Fashion',
@@ -196,7 +196,7 @@ export const EcommerceStore = signalStore(
         price: 18.99,
         imageUrl:
           'https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=800&auto=format&fit=crop',
-        rating: '4.4',
+        rating: 4.4,
         reviewCount: 102,
         inStock: true,
         category: 'Lifestyle',
@@ -208,7 +208,7 @@ export const EcommerceStore = signalStore(
         price: 22.99,
         imageUrl:
           'https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=800&auto=format&fit=crop',
-        rating: '4.3',
+        rating: 4.3,
         reviewCount: 77,
         inStock: true,
         category: 'Fitness',
@@ -220,7 +220,7 @@ export const EcommerceStore = signalStore(
         price: 59.99,
         imageUrl:
           'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop',
-        rating: '4.6',
+        rating: 4.6,
         reviewCount: 134,
         inStock: true,
         category: 'Fitness',
@@ -232,7 +232,7 @@ export const EcommerceStore = signalStore(
         price: 79.99,
         imageUrl:
           'https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?q=80&w=800&auto=format&fit=crop',
-        rating: '4.5',
+        rating: 4.5,
         reviewCount: 156,
         inStock: true,
         category: 'Kitchen',
@@ -244,7 +244,7 @@ export const EcommerceStore = signalStore(
         price: 49.99,
         imageUrl:
           'https://images.unsplash.com/photo-1570222094114-d054a817e56b?q=80&w=800&auto=format&fit=crop',
-        rating: '4.2',
+        rating: 4.2,
         reviewCount: 93,
         inStock: true,
         category: 'Kitchen',
@@ -256,7 +256,7 @@ export const EcommerceStore = signalStore(
         price: 119.99,
         imageUrl:
           'https://images.unsplash.com/photo-1585238342024-78d387f4a707?q=80&w=800&auto=format&fit=crop',
-        rating: '4.7',
+        rating: 4.7,
         reviewCount: 240,
         inStock: true,
         category: 'Kitchen',
@@ -268,7 +268,7 @@ export const EcommerceStore = signalStore(
         price: 29.99,
         imageUrl:
           'https://images.unsplash.com/photo-1570829460005-c840387bb1ca?q=80&w=800&auto=format&fit=crop',
-        rating: '4.4',
+        rating: 4.4,
         reviewCount: 110,
         inStock: true,
         category: 'Kitchen',
@@ -280,7 +280,7 @@ export const EcommerceStore = signalStore(
         price: 9.99,
         imageUrl:
           'https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=800&auto=format&fit=crop',
-        rating: '4.1',
+        rating: 4.1,
         reviewCount: 45,
         inStock: true,
         category: 'Office',
@@ -292,7 +292,7 @@ export const EcommerceStore = signalStore(
         price: 12.99,
         imageUrl:
           'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?q=80&w=800&auto=format&fit=crop',
-        rating: '4.3',
+        rating: 4.3,
         reviewCount: 52,
         inStock: true,
         category: 'Office',
@@ -304,7 +304,7 @@ export const EcommerceStore = signalStore(
         price: 27.99,
         imageUrl:
           'https://images.unsplash.com/photo-1501139083538-0139583c060f?q=80&w=800&auto=format&fit=crop',
-        rating: '4.2',
+        rating: 4.2,
         reviewCount: 67,
         inStock: true,
         category: 'Home',
@@ -316,7 +316,7 @@ export const EcommerceStore = signalStore(
         price: 15.99,
         imageUrl:
           'https://images.unsplash.com/photo-1485955900006-10f4d324d411?q=80&w=800&auto=format&fit=crop',
-        rating: '4.5',
+        rating: 4.5,
         reviewCount: 39,
         inStock: true,
         category: 'Home',
@@ -328,7 +328,7 @@ export const EcommerceStore = signalStore(
         price: 35.99,
         imageUrl:
           'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=800&auto=format&fit=crop',
-        rating: '4.3',
+        rating: 4.3,
         reviewCount: 81,
         inStock: true,
         category: 'Appliances',
