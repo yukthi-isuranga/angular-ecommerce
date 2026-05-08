@@ -7,10 +7,19 @@ import { MatAnchor } from '@angular/material/button';
 import { EcommerceStore } from '../../../store/ecommerce-store';
 import { MatIcon } from '@angular/material/icon';
 import { ToggleWishlistButton } from '../../../components/toggle-wishlist-button/toggle-wishlist-button';
+import { StarRating } from '../../../components/star-rating/star-rating';
 
 @Component({
   selector: 'app-product-info',
-  imports: [TitleCasePipe, StockStatus, QtySelector, MatAnchor, MatIcon, ToggleWishlistButton],
+  imports: [
+    TitleCasePipe,
+    StockStatus,
+    QtySelector,
+    MatAnchor,
+    MatIcon,
+    ToggleWishlistButton,
+    StarRating,
+  ],
   templateUrl: './product-info.html',
   styleUrl: './product-info.scss',
 })
